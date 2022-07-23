@@ -2,7 +2,6 @@ package com.example.ethereumblockchainapp.model
 
 import org.web3j.protocol.Web3j
 import org.web3j.protocol.http.HttpService
-import org.web3j.protocol.core.DefaultBlockParameter
 import java.math.RoundingMode
 import java.util.concurrent.ExecutionException
 import java.lang.InterruptedException
@@ -10,7 +9,6 @@ import org.web3j.protocol.core.methods.response.EthGetTransactionCount
 import org.web3j.protocol.core.DefaultBlockParameterName
 import java.math.BigDecimal
 import java.math.BigInteger
-import java.util.concurrent.TimeUnit
 import java.util.concurrent.TimeoutException
 
 class BlockChainRepository {
@@ -27,8 +25,8 @@ class BlockChainRepository {
 
         try {
             val balanceResponse =
-                web3jClient.ethGetBalance(ethAddress, DefaultBlockParameter.valueOf("latest"))
-                    .sendAsync()[30, TimeUnit.SECONDS]
+                web3jClient.ethGetBalance(ethAddress, DefaultBlockParameterName.LATEST)
+                    .sendAsync().get()
 
             val unscaledBalance = balanceResponse.balance
             val scaledBalance = BigDecimal(unscaledBalance)

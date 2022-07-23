@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import androidx.fragment.app.activityViewModels
 import com.example.ethereumblockchainapp.R
 import com.example.ethereumblockchainapp.common.BaseFragment
@@ -36,6 +37,7 @@ class ResultFragment : BaseFragment() {
             } else {
                 binding.textViewBlockChainBalance.text = "Balance: " + balance + " Ether"
             }
+            binding.progressBarBalance.visibility = ProgressBar.GONE
         }
 
         blockChainViewModel.nonce.observe(viewLifecycleOwner) { nonce ->
@@ -44,6 +46,7 @@ class ResultFragment : BaseFragment() {
             } else {
                 binding.textViewNonce.text = "Nonce: " + nonce
             }
+            binding.progressBarNonce.visibility = ProgressBar.GONE
         }
     }
 }

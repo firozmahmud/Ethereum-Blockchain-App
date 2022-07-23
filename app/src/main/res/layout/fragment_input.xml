@@ -10,7 +10,6 @@
     android:padding="10dp"
     tools:context=".view.InputFragment">
 
-
     <RelativeLayout
         android:id="@+id/topPanel"
         android:layout_width="match_parent"

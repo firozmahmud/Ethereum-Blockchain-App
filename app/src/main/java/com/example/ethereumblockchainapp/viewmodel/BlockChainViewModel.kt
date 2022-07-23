@@ -2,7 +2,10 @@ package com.example.ethereumblockchainapp.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.ethereumblockchainapp.model.BlockChainRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class BlockChainViewModel : ViewModel() {
     private val blockChainRepository = BlockChainRepository()
@@ -11,8 +14,10 @@ class BlockChainViewModel : ViewModel() {
     val nonce = MutableLiveData<String>()
 
     fun getBlockChainDetails(ethAddress: String) {
-        getETHBalance(ethAddress)
-        getNonce(ethAddress)
+        viewModelScope.launch(Dispatchers.IO) {
+            getETHBalance(ethAddress)
+            getNonce(ethAddress)
+        }
     }
 
     private fun getETHBalance(ethAddress: String) {

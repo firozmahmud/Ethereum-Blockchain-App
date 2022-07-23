@@ -13,4 +13,7 @@
     <string name="blockchain_1">Blockchain 1</string>
     <string name="visit_etherscan_site">Please visit https://etherscan.io/ to get Ethereum Blockchain public address</string>
     <string name="click_here_to_visit">Click here to visit</string>
+    <string name="getting_details">Getting the blockchain details. Please wait...</string>
+    <string name="balance">Balance</string>
+    <string name="nonce">Nonce</string>
 </resources>

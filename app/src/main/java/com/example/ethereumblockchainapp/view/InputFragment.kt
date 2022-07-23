@@ -59,7 +59,7 @@ class InputFragment : BaseFragment() {
                 binding.editTextETHAddress.error = "Input blockchain address"
                 return@setOnClickListener
             }
-
+            // Get blockchain information details and go to the details screen to show details
             blockChainViewModel.getBlockChainDetails(ethAddress)
             findNavController().navigate(R.id.action_inputFragment_to_resultFragment)
         }
@@ -68,6 +68,5 @@ class InputFragment : BaseFragment() {
             findNavController().navigate(R.id.action_inputFragment_to_helpFragment)
         }
     }
-
 
 }
