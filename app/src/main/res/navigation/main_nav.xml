@@ -7,7 +7,7 @@
     <fragment
         android:id="@+id/inputFragment"
         android:name="com.example.ethereumblockchainapp.view.InputFragment"
-        android:label="fragment_input"
+        android:label="Blockchain App"
         tools:layout="@layout/fragment_input">
         <action
             android:id="@+id/action_inputFragment_to_resultFragment"
@@ -19,7 +19,7 @@
     <fragment
         android:id="@+id/resultFragment"
         android:name="com.example.ethereumblockchainapp.view.ResultFragment"
-        android:label="fragment_result"
+        android:label="BlockChain Details"
         tools:layout="@layout/fragment_result">
         <action
             android:id="@+id/action_resultFragment_to_inputFragment"
@@ -30,7 +30,7 @@
     <fragment
         android:id="@+id/helpFragment"
         android:name="com.example.ethereumblockchainapp.view.HelpFragment"
-        android:label="fragment_help"
+        android:label="BlockChain Help"
         tools:layout="@layout/fragment_help">
         <action
             android:id="@+id/action_helpFragment_to_inputFragment"

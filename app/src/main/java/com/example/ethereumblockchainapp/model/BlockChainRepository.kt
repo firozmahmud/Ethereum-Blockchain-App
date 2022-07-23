@@ -28,7 +28,7 @@ class BlockChainRepository {
         try {
             val balanceResponse =
                 web3jClient.ethGetBalance(ethAddress, DefaultBlockParameter.valueOf("latest"))
-                    .sendAsync()[10, TimeUnit.SECONDS]
+                    .sendAsync()[30, TimeUnit.SECONDS]
 
             val unscaledBalance = balanceResponse.balance
             val scaledBalance = BigDecimal(unscaledBalance)

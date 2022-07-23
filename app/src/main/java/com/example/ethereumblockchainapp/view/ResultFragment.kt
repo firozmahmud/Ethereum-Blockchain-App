@@ -1,16 +1,16 @@
 package com.example.ethereumblockchainapp.view
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import com.example.ethereumblockchainapp.R
+import com.example.ethereumblockchainapp.common.BaseFragment
 import com.example.ethereumblockchainapp.databinding.FragmentResultBinding
 import com.example.ethereumblockchainapp.viewmodel.BlockChainViewModel
 
-class ResultFragment : Fragment() {
+class ResultFragment : BaseFragment() {
 
     private lateinit var binding: FragmentResultBinding
     private val blockChainViewModel: BlockChainViewModel by activityViewModels()
@@ -32,7 +32,7 @@ class ResultFragment : Fragment() {
     private fun observeLiveData() {
         blockChainViewModel.ethBalance.observe(viewLifecycleOwner) { balance ->
             if (balance.isNullOrEmpty()) {
-                binding.textViewBlockChainBalance.text = "No balance found"
+                binding.textViewBlockChainBalance.text = "No balance found. Please try again."
             } else {
                 binding.textViewBlockChainBalance.text = "Balance: " + balance + " Ether"
             }

@@ -1,29 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
     android:gravity="center"
     android:orientation="vertical"
+    android:padding="10dp"
     tools:context=".view.InputFragment">
+
+
+    <RelativeLayout
+        android:id="@+id/topPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp">
+
+        <ImageView
+            android:id="@+id/buttonPaste"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_toStartOf="@id/buttonClear"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:src="@drawable/paste"
+            android:tooltipText="@string/paste" />
+
+        <ImageView
+            android:id="@+id/buttonClear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="10dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:src="@drawable/clear"
+            android:tooltipText="@string/clear" />
+
+    </RelativeLayout>
 
 
     <EditText
         android:id="@+id/editTextETHAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Input blockchain address here"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/edit_text_border"
+        android:hint="@string/input_blockchain_address_here"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
         android:textAlignment="center"
         android:textColor="@color/black"
+        android:textColorHint="@color/grey"
         android:textSize="16sp" />
-
 
     <Button
         android:id="@+id/buttonGetBlockDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:text="Get blockchain details" />
+        android:layout_marginTop="40dp"
+        android:text="@string/get_blockchain_details"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/buttonGetHelp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/help"
+        android:textColor="@color/white" />
 
 </LinearLayout>

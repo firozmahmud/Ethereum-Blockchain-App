@@ -2,4 +2,15 @@
     <string name="app_name">Ethereum Blockchain App</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="get_blockchain_details">Get blockchain details</string>
+    <string name="input_blockchain_address_here">Input blockchain address here</string>
+    <string name="paste">Paste address</string>
+    <string name="clear">Clear address</string>
+    <string name="help">Help</string>
+    <string name="block_address_1">0x1d669326a73c86Dae5Ebcb52B067A97221FFaaB6</string>
+    <string name="block_address_2">0x6cc8dCbCA746a6E4Fdefb98E1d0DF903b107fd21</string>
+    <string name="blockchain_2">Blockchain 2</string>
+    <string name="blockchain_1">Blockchain 1</string>
+    <string name="visit_etherscan_site">Please visit https://etherscan.io/ to get Ethereum Blockchain public address</string>
+    <string name="click_here_to_visit">Click here to visit</string>
 </resources>

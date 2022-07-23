@@ -3,18 +3,97 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:background="@color/white"
+    android:gravity="center"
     android:orientation="vertical"
+    android:padding="10dp"
     tools:context=".view.HelpFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/demo1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="@string/blockchain_1" />
+
+        <TextView
+            android:id="@+id/textViewBlock1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/demo1"
+            android:layout_marginEnd="10dp"
+            android:layout_toStartOf="@id/buttonCopyBlock1"
+            android:text="@string/block_address_1"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/buttonCopyBlock1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/demo1"
+            android:layout_alignParentEnd="true"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:src="@drawable/copy" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/demo2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="@string/blockchain_2" />
+
+        <TextView
+            android:id="@+id/textViewBlock2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/demo2"
+            android:layout_marginEnd="10dp"
+            android:layout_toStartOf="@id/buttonCopyBlock2"
+            android:text="@string/block_address_2"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/buttonCopyBlock2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/demo2"
+            android:layout_alignParentEnd="true"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:src="@drawable/copy" />
+    </RelativeLayout>
 
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Help"
+        android:layout_marginTop="40dp"
+        android:text="@string/visit_etherscan_site"
         android:textAlignment="center"
-        android:textSize="35sp" />
+        android:textColor="@color/black" />
 
+    <Button
+        android:id="@+id/buttonClickToVisit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/click_here_to_visit"
+        android:textColor="@color/white"
+        android:textSize="12sp" />
 
 </LinearLayout>
