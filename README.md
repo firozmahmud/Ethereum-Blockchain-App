@@ -40,7 +40,7 @@ Foldable devices provide an opportunity for innovating app development. It provi
 
 
 <p>
-<b>Screen States:</b> Same device provides various states. Let’s have a look.
+* <b>Screen States:</b> Same device provides various states. Let’s have a look.
 </p>
   
 
@@ -81,27 +81,27 @@ Figure 2: Various states of foldable device
 
 
 <p>
-<b>One or two handed app design:</b> The foldable devices bring huge changes of user experience. Users interact with phones with one hand. But, in the unfolded state, they may need to use both hands to interact. Thus, developers will need to adjust the placement of user interface elements accordingly for better user experience. 
+* <b>One or two handed app design:</b> The foldable devices bring huge changes of user experience. Users interact with phones with one hand. But, in the unfolded state, they may need to use both hands to interact. Thus, developers will need to adjust the placement of user interface elements accordingly for better user experience. 
 </p>
 <br>
   
   
   
 <p>
-<b>Multi-window support:</b> One of the major advantages of a foldable device is users can get smartphone and tablet functionality with a single device. It has the ability to split a screen into two and run two apps on two different screens. The latest versions of Android allow users to open multiple apps alongside each other. Users might interact with a few multi-window apps and each app can be resizable. Just like apps on the desktop. So developers should keep it in mind when designing and developing the app for a foldable device.
+* <b>Multi-window support:</b> One of the major advantages of a foldable device is users can get smartphone and tablet functionality with a single device. It has the ability to split a screen into two and run two apps on two different screens. The latest versions of Android allow users to open multiple apps alongside each other. Users might interact with a few multi-window apps and each app can be resizable. Just like apps on the desktop. So developers should keep it in mind when designing and developing the app for a foldable device.
 </p>
 <br>
 
 
 
 <p>
-<b>Adjust the screen ratios:</b> In a foldable device, users might move from folded to unfolded state. In these situations, the app must resume its location and state. Developers may need to minimize the number of interface layout shifts, otherwise such shifts will interrupt the user experience.
+* <b>Adjust the screen ratios:</b> In a foldable device, users might move from folded to unfolded state. In these situations, the app must resume its location and state. Developers may need to minimize the number of interface layout shifts, otherwise such shifts will interrupt the user experience.
 </p>
 <br>
 
 
 <p>
-<b>Responsive design:</b> Responsive layouts enable an app to look great on various display sizes, like folded or unfolded screens. For example, a large-screen for foldable device unfolded in landscape is like a tablet, a two-pane layout with navigation rail makes it better. Then folded, the device is like a standard phone. Then  a single column layout with a bottom navigation bar is effective. 
+* <b>Responsive design:</b> Responsive layouts enable an app to look great on various display sizes, like folded or unfolded screens. For example, a large-screen for foldable device unfolded in landscape is like a tablet, a two-pane layout with navigation rail makes it better. Then folded, the device is like a standard phone. Then  a single column layout with a bottom navigation bar is effective. 
 </p>
 <br>
 
@@ -114,7 +114,7 @@ Figure 3: Two types of design for folded and unfolded screen
 <br>
 
 <p>
-<b>Drag and drop:</b> Google introduced the Android Drag and Drop framework. Thus, developers can develop apps that enable drag and drop between  other apps. This will create a great user experience.
+* <b>Drag and drop:</b> Google introduced the Android Drag and Drop framework. Thus, developers can develop apps that enable drag and drop between  other apps. This will create a great user experience.
 </p>
 <br>
 
