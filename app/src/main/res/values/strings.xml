@@ -16,4 +16,5 @@
     <string name="getting_details">Getting the blockchain details. Please wait...</string>
     <string name="balance">Balance</string>
     <string name="nonce">Nonce</string>
+    <string name="transactions">Transactions</string>
 </resources>

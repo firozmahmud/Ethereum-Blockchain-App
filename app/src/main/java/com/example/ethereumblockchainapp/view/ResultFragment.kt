@@ -31,8 +31,9 @@ class ResultFragment : BaseFragment() {
     }
 
     private fun observeLiveData() {
+        // Observe blockchain balance
         blockChainViewModel.ethBalance.observe(viewLifecycleOwner) { balance ->
-            if (balance.isNullOrEmpty()) {
+            if (balance == null) {
                 binding.textViewBlockChainBalance.text = "No balance found. Please try again."
             } else {
                 binding.textViewBlockChainBalance.text = "Balance: " + balance + " Ether"
@@ -40,8 +41,9 @@ class ResultFragment : BaseFragment() {
             binding.progressBarBalance.visibility = ProgressBar.GONE
         }
 
-        blockChainViewModel.nonce.observe(viewLifecycleOwner) { nonce ->
-            if (nonce.isNullOrEmpty()) {
+        // Observe blockchain nonce
+        blockChainViewModel.ethNonce.observe(viewLifecycleOwner) { nonce ->
+            if (nonce == null) {
                 binding.textViewNonce.text = "Nonce not found"
             } else {
                 binding.textViewNonce.text = "Nonce: " + nonce

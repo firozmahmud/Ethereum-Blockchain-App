@@ -11,7 +11,7 @@ class BlockChainViewModel : ViewModel() {
     private val blockChainRepository = BlockChainRepository()
 
     val ethBalance = MutableLiveData<String>()
-    val nonce = MutableLiveData<String>()
+    val ethNonce = MutableLiveData<String>()
 
     fun getBlockChainDetails(ethAddress: String) {
         viewModelScope.launch(Dispatchers.IO) {
@@ -25,6 +25,6 @@ class BlockChainViewModel : ViewModel() {
     }
 
     private fun getNonce(ethAddress: String) {
-        nonce.postValue(blockChainRepository.getETHNonce(ethAddress))
+        ethNonce.postValue(blockChainRepository.getETHNonce(ethAddress))
     }
 }
