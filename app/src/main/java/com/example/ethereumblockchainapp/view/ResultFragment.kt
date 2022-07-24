@@ -50,22 +50,14 @@ class ResultFragment : BaseFragment() {
         // Observe blockchain balance
         blockChainViewModel.ethBalanceLiveData.observe(viewLifecycleOwner) { balance ->
             if (balance == null) return@observe
-            val balanceText = when (balance) {
-                "" -> "No balance found. Please try again."
-                else -> "Balance: $balance Ether"
-            }
-            setETHBalance(balanceText)
+            setETHBalance(balance)
             hideLoader(binding.progressBarBalance)
         }
 
         // Observe blockchain nonce
         blockChainViewModel.ethNonceLiveData.observe(viewLifecycleOwner) { nonce ->
             if (nonce == null) return@observe
-            val nonceText = when (nonce) {
-                "" -> "Nonce not found"
-                else -> "Nonce: $nonce"
-            }
-            setETHNonce(nonceText)
+            setETHNonce(nonce)
             hideLoader(binding.progressBarNonce)
         }
     }

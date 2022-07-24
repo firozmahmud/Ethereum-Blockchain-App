@@ -23,8 +23,8 @@ class BlockChainViewModel : ViewModel() {
     private fun getETHBalance(ethAddress: String) {
         var balance = blockChainRepository.getETHBalance(ethAddress)
         balance = when (balance.trim().isEmpty()) {
-            true -> ""
-            else -> balance
+            true -> "No balance found. Please try again."
+            else -> "Balance: $balance Ether"
         }
         ethBalanceLiveData.postValue(balance)
     }
@@ -32,8 +32,8 @@ class BlockChainViewModel : ViewModel() {
     private fun getNonce(ethAddress: String) {
         var nonce = blockChainRepository.getETHNonce(ethAddress)
         nonce = when (nonce.trim().isEmpty()) {
-            true -> ""
-            else -> nonce
+            true -> "Nonce not found"
+            else -> "Nonce: $nonce"
         }
         ethNonceLiveData.postValue(nonce)
     }
