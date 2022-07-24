@@ -26,3 +26,37 @@ A phone with a particular display that can be folded in half is referred to as a
 <p><b>
 Figure 1: Galaxy Z Fold3
 </b></p>
+
+
+<br>
+<h3>
+  Step to develop apps for foldable devices
+</h3>
+
+<p>
+Foldable devices provide an opportunity for innovating app development. It provides both large and small screens on the same devices. They provide extra space, so developers can add more features on the app. 
+</p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
