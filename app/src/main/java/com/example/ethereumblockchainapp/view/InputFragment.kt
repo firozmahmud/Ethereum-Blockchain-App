@@ -37,35 +37,47 @@ class InputFragment : BaseFragment() {
 
     private fun initListener() {
         binding.buttonClear.setOnClickListener {
-            binding.editTextETHAddress.text.clear()
-            showToast("Cleared")
+            clearedEditTextField()
         }
 
         binding.buttonPaste.setOnClickListener {
-            // Paste the copied block address into the edittext
-            val pasteItem = clipboardManager?.primaryClip?.getItemAt(0)
-            val pasteValue = pasteItem?.text
-            if (pasteValue?.isNotEmpty() == true) {
-                binding.editTextETHAddress.text =
-                    Editable.Factory.getInstance().newEditable(pasteValue)
-            } else {
-                showToast("No value copied")
-            }
+            pasteCopiedDataToEditText()
         }
 
         binding.buttonGetBlockDetails.setOnClickListener {
-            val ethAddress = binding.editTextETHAddress.text.toString().trim()
-            if (ethAddress.isEmpty()) {
-                binding.editTextETHAddress.error = "Input blockchain address"
-                return@setOnClickListener
-            }
-            // Get blockchain information details and go to the details screen to show details
-            blockChainViewModel.getBlockChainDetails(ethAddress)
-            findNavController().navigate(R.id.action_inputFragment_to_resultFragment)
+            inputETHPublicAddressToGetInfo()
         }
 
         binding.buttonGetHelp.setOnClickListener {
             findNavController().navigate(R.id.action_inputFragment_to_helpFragment)
+        }
+    }
+
+    private fun inputETHPublicAddressToGetInfo() {
+        val ethAddress = binding.editTextETHAddress.text.toString().trim()
+        if (ethAddress.isEmpty()) {
+            binding.editTextETHAddress.error = "Input blockchain address"
+            return
+        }
+        // Get blockchain information details and go to the details screen to show details
+        blockChainViewModel.getBlockChainDetails(ethAddress)
+        findNavController().navigate(R.id.action_inputFragment_to_resultFragment)
+    }
+
+    private fun clearedEditTextField() {
+        binding.editTextETHAddress.text.clear()
+        showToast("Cleared")
+    }
+
+    private fun pasteCopiedDataToEditText() {
+        // Paste copied data into the edittext field
+        val pasteItem = clipboardManager?.primaryClip?.getItemAt(0)
+        val pasteValue = pasteItem?.text
+        if (pasteValue?.isNotEmpty() == true) {
+            binding.editTextETHAddress.text =
+                Editable.Factory.getInstance().newEditable(pasteValue)
+        } else {
+            showToast("No value copied")
         }
     }
 
