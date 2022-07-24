@@ -24,7 +24,10 @@ class BlockChainViewModel : ViewModel() {
         var balance = blockChainRepository.getETHBalance(ethAddress)
         balance = when (balance.trim().isEmpty()) {
             true -> "No balance found. Please try again."
-            else -> "Balance: $balance Ether"
+            else -> when (balance.equals("not valid", true)) {
+                true -> "The blockchain address not valid. Value must be in format 0x[1-9]+[0-9]* or 0x0"
+                else -> "Balance: $balance Ether"
+            }
         }
         ethBalanceLiveData.postValue(balance)
     }
@@ -33,7 +36,10 @@ class BlockChainViewModel : ViewModel() {
         var nonce = blockChainRepository.getETHNonce(ethAddress)
         nonce = when (nonce.trim().isEmpty()) {
             true -> "Nonce not found"
-            else -> "Nonce: $nonce"
+            else -> when (nonce.equals("not valid", true)) {
+                true -> "The blockchain address not valid. Value must be in format 0x[1-9]+[0-9]* or 0x0"
+                else -> "Nonce: $nonce"
+            }
         }
         ethNonceLiveData.postValue(nonce)
     }

@@ -23,11 +23,12 @@ class BlockChainRepository {
 
     fun getETHBalance(ethAddress: String?): String {
         var ethBalance = ""
-
         try {
             val balanceResponse =
-                web3jClient.ethGetBalance(ethAddress, DefaultBlockParameterName.LATEST)
-                    .sendAsync().get()
+                web3jClient.ethGetBalance(ethAddress, DefaultBlockParameterName.LATEST).sendAsync()
+                    .get()
+
+            if (balanceResponse.result == null) return "not valid"
 
             val unscaledBalance = balanceResponse.balance
             val scaledBalance = BigDecimal(unscaledBalance)
@@ -59,6 +60,7 @@ class BlockChainRepository {
 
         var ethNonce: BigInteger? = null
         if (ethGetTransactionCount != null) {
+            if (ethGetTransactionCount.result == null) return "not valid"
             ethNonce = ethGetTransactionCount.transactionCount
         }
         return "" + ethNonce
