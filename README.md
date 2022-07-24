@@ -1,5 +1,3 @@
-# Ethereum-Blockchain-App
-
 <h1>
 How to Adapt android app for foldable devices
 </h1>
