@@ -10,8 +10,8 @@ import kotlinx.coroutines.launch
 class BlockChainViewModel : ViewModel() {
     private val blockChainRepository = BlockChainRepository()
 
-    val ethBalance = MutableLiveData<String>()
-    val ethNonce = MutableLiveData<String>()
+    val ethBalanceLiveData = MutableLiveData<String>()
+    val ethNonceLiveData = MutableLiveData<String>()
 
     fun getBlockChainDetails(ethAddress: String) {
         viewModelScope.launch(Dispatchers.IO) {
@@ -21,10 +21,25 @@ class BlockChainViewModel : ViewModel() {
     }
 
     private fun getETHBalance(ethAddress: String) {
-        ethBalance.postValue(blockChainRepository.getETHBalance(ethAddress))
+        var balance = blockChainRepository.getETHBalance(ethAddress)
+        balance = when (balance.trim().isEmpty()) {
+            true -> ""
+            else -> balance
+        }
+        ethBalanceLiveData.postValue(balance)
     }
 
     private fun getNonce(ethAddress: String) {
-        ethNonce.postValue(blockChainRepository.getETHNonce(ethAddress))
+        var nonce = blockChainRepository.getETHNonce(ethAddress)
+        nonce = when (nonce.trim().isEmpty()) {
+            true -> ""
+            else -> nonce
+        }
+        ethNonceLiveData.postValue(nonce)
+    }
+
+    fun clear() {
+        ethBalanceLiveData.value = null
+        ethNonceLiveData.value = null
     }
 }

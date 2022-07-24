@@ -26,29 +26,64 @@ class ResultFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentResultBinding.bind(view)
+    }
 
+    override fun onResume() {
+        super.onResume()
+        initViews()
         observeLiveData()
+    }
+
+    private fun initViews() {
+        // Init the screen when visible everytime
+        setETHBalance("Getting balance...")
+        setETHNonce("Getting nonce...")
+        viewAllLoader()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        blockChainViewModel.clear()
     }
 
     private fun observeLiveData() {
         // Observe blockchain balance
-        blockChainViewModel.ethBalance.observe(viewLifecycleOwner) { balance ->
-            if (balance == null) {
-                binding.textViewBlockChainBalance.text = "No balance found. Please try again."
-            } else {
-                binding.textViewBlockChainBalance.text = "Balance: " + balance + " Ether"
+        blockChainViewModel.ethBalanceLiveData.observe(viewLifecycleOwner) { balance ->
+            if (balance == null) return@observe
+            val balanceText = when (balance) {
+                "" -> "No balance found. Please try again."
+                else -> "Balance: $balance Ether"
             }
-            binding.progressBarBalance.visibility = ProgressBar.GONE
+            setETHBalance(balanceText)
+            hideLoader(binding.progressBarBalance)
         }
 
         // Observe blockchain nonce
-        blockChainViewModel.ethNonce.observe(viewLifecycleOwner) { nonce ->
-            if (nonce == null) {
-                binding.textViewNonce.text = "Nonce not found"
-            } else {
-                binding.textViewNonce.text = "Nonce: " + nonce
+        blockChainViewModel.ethNonceLiveData.observe(viewLifecycleOwner) { nonce ->
+            if (nonce == null) return@observe
+            val nonceText = when (nonce) {
+                "" -> "Nonce not found"
+                else -> "Nonce: $nonce"
             }
-            binding.progressBarNonce.visibility = ProgressBar.GONE
+            setETHNonce(nonceText)
+            hideLoader(binding.progressBarNonce)
         }
+    }
+
+    private fun viewAllLoader() {
+        binding.progressBarBalance.visibility = ProgressBar.VISIBLE
+        binding.progressBarNonce.visibility = ProgressBar.VISIBLE
+    }
+
+    private fun hideLoader(progressBar: ProgressBar) {
+        progressBar.visibility = ProgressBar.GONE
+    }
+
+    private fun setETHBalance(balance: String) {
+        binding.textViewBlockChainBalance.text = balance
+    }
+
+    private fun setETHNonce(nonce: String) {
+        binding.textViewNonce.text = nonce
     }
 }
