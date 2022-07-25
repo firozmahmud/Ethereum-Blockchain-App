@@ -9,6 +9,15 @@
     android:padding="10dp"
     tools:context=".view.HelpFragment">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
+        android:gravity="center"
+        android:text="@string/get_public_address"
+        android:textColor="@color/black"
+        android:textSize="14sp" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

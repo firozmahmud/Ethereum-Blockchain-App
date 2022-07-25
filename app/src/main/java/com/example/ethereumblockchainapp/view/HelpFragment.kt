@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import com.example.ethereumblockchainapp.R
 import com.example.ethereumblockchainapp.common.BaseFragment
 import com.example.ethereumblockchainapp.databinding.FragmentHelpBinding
@@ -32,21 +33,16 @@ class HelpFragment : BaseFragment() {
         binding = FragmentHelpBinding.bind(view)
 
         clipboardManager = activity?.getSystemService(CLIPBOARD_SERVICE) as ClipboardManager?
-
         initListener()
     }
 
     private fun initListener() {
         binding.buttonCopyBlock1.setOnClickListener {
-            clipData = ClipData.newPlainText("text", binding.textViewBlock1.text)
-            clipboardManager?.setPrimaryClip(clipData as ClipData)
-            showToast("Copied")
+            copyDataFromTextView(binding.textViewBlock1)
         }
 
         binding.buttonCopyBlock2.setOnClickListener {
-            clipData = ClipData.newPlainText("text", binding.textViewBlock2.text)
-            clipboardManager?.setPrimaryClip(clipData as ClipData)
-            showToast("Copied")
+            copyDataFromTextView(binding.textViewBlock2)
         }
 
         binding.buttonClickToVisit.setOnClickListener {
@@ -54,5 +50,11 @@ class HelpFragment : BaseFragment() {
             val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://etherscan.io/"))
             startActivity(browserIntent)
         }
+    }
+
+    private fun copyDataFromTextView(textView: TextView) {
+        clipData = ClipData.newPlainText("text", textView.text)
+        clipboardManager?.setPrimaryClip(clipData as ClipData)
+        showToast("Copied")
     }
 }
